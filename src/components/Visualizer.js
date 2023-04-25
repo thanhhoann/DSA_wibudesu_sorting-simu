@@ -255,5 +255,99 @@ const partition = (arr, left, right) => {
   return i + 1
 }
 
+// Heap Sort
+const heapSort = async () => {
+  let arr = primaryArray
+  let length = arr.length
+  let index = Math.floor(length / 2 - 1)
+  let lastChild = length - 1
+
+  setAlgorithm({name: 'Heap Sort', timeComplexity: 'O(n log(n))'})
+
+  while (index >= 0) {
+      await heapify(arr, length, index)
+      index--
+
+      setPrimaryArray([...primaryArray, arr])
+
+      if (index >= 0) {
+          let bar1 = document.getElementById(index).style
+          let bar2 = document.getElementById(index + 1).style
+          bar1.backgroundColor = '#DC143C'
+          bar2.backgroundColor = '#6A5ACD'
+
+          await sleep(animationSpeed)
+
+
+          bar1.backgroundColor = '#FF7F50'
+          bar2.backgroundColor = '#FF7F50'
+      } else {
+          await sleep(animationSpeed)
+      }
+  }
+
+  while (lastChild >= 0) {
+      let swap1 = arr[0]
+      let swap2 = arr[lastChild]
+
+      arr[0] = swap2
+      arr[lastChild] = swap1
+      await heapify(arr, lastChild, 0)
+      lastChild--
+
+
+      setPrimaryArray([...primaryArray, arr])
+
+      if (index >= 0) {
+          let bar1 = document.getElementById(lastChild).style
+          let bar2 = document.getElementById(0).style
+          bar1.backgroundColor = '#DC143C'
+          bar2.backgroundColor = '#6A5ACD'
+
+          bar1.backgroundColor = '#FF7F50'
+          bar2.backgroundColor = '#FF7F50'
+      } else {
+          await sleep(animationSpeed)
+      }
+  }
+
+  finishedAnimation()
+}
+
+const heapify = async (arr, length, index) => {
+  let largest = index
+  let leftNode = index * 2 + 1
+  let rightNode = leftNode + 1
+
+  if (arr[leftNode] > arr[largest] && leftNode < length) {
+      largest = leftNode
+  }
+
+  if (arr[rightNode] > arr[largest] && rightNode < length) {
+      largest = rightNode
+  }
+
+  if (largest !== index) {
+      let swap1 = arr[index]
+      let swap2 = arr[largest]
+      arr[index] = swap2
+      arr[largest] = swap1
+
+      let bar1 = document.getElementById(index).style
+      let bar2 = document.getElementById(largest).style
+      bar1.backgroundColor = '#DC143C'
+      bar2.backgroundColor = '#6A5ACD'
+
+      await sleep(animationSpeed)
+
+      bar1.backgroundColor = '#FF7F50'
+      bar2.backgroundColor = '#FF7F50'
+
+      await heapify(arr, length, largest)
+  }
+
+  return arr
+}
+
   return <></>
 }
