@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
+import "../styles/button.css";
 
 const Button = ({ type, name, onClick, disabled }) => {
   return (
     <button
-      className={type === 'SORT' ? 'button sort' : 'button newArray'}
+      className={type === "SORT" ? "button sort" : "button newArray"}
       disabled={disabled}
       onClick={onClick}
     >
       {name}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
