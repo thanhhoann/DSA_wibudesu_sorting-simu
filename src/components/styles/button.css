@@ -37,6 +37,22 @@
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+.reset {
+  background-color: #f6aa1c;
+  box-shadow: 0 2px white;
+}
+
+.reset:hover {
+  background-color: #ff6d00;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.reset:active {
+  box-shadow: 0 2px #f082ac;
+  transform: translateY(2px);
+}
+
 .button:active {
   box-shadow: 0 2px powderblue;
   transform: translateY(2px);

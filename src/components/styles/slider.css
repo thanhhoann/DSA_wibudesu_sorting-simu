@@ -1,8 +1,9 @@
 .wrapper {
-  width: 30%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
 }
 
 form {
@@ -27,7 +28,7 @@ form .speed-slider {
 }
 
 form .speed-slider::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   height: 2px;
   width: 100%;
@@ -35,7 +36,7 @@ form .speed-slider::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #000;
+  background: white;
 }
 
 form .speed-slider input,
@@ -69,7 +70,7 @@ form .speed-slider label::before {
 }
 
 form .speed-slider label::after {
-  content: " ";
+  content: ' ';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -187,8 +188,8 @@ form + button::before {
   display: inline-block;
   width: 0;
   opacity: 0;
-  content: "\f3f4";
-  font-family: "Font Awesome 5 Pro";
+  content: '\f3f4';
+  font-family: 'Font Awesome 5 Pro';
   font-weight: 900;
   margin-right: 0;
   transform: rotate(0deg);
@@ -206,7 +207,6 @@ form:invalid + button {
     opacity: 1;
     margin-right: 12px;
   }
-
   to {
     transform: rotate(360deg);
     width: 24px;

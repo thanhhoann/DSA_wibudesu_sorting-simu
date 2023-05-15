@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
-
+import {
+  FINISHED_BAR_COLOR,
+  FIRST_BAR_COLOR,
+  NORMAL_BAR_COLOR,
+  SECOND_BAR_COLOR,
+} from "../utils/constants";
 import Button from "./UI/Button";
 import Dropdown from "./UI/Dropdown";
 import Slider from "./UI/Slider";
 
-import { NORMAL_BAR_BCOLOR } from "../libs/constants";
+const ARRAYSIZE = 50;
 
-const ARRAYSIZE = 90;
-
-export default function Visualizer() {
+const Visualizer = () => {
   const [primaryArray, setPrimaryArray] = useState([]);
   const [algorithm, setAlgorithm] = useState("bubbleSort");
-  const [animationSpeed, setAnimationSpeed] = useState(50);
+  const [animationSpeed, setAnimationSpeed] = useState(5);
   const [disableOptions, setDisableOptions] = useState(false);
 
   const randomizeArray = () => {
     for (let i = 0; i < primaryArray.length; i++) {
       let bar = document.getElementById(i).style;
-      bar.backgroundColor = NORMAL_BAR_BCOLOR;
+      bar.backgroundColor = NORMAL_BAR_COLOR;
     }
+
     let array = [];
     for (let i = 0; i < ARRAYSIZE; i++) {
       array.push(randomVals(20, 400));
@@ -43,7 +47,7 @@ export default function Visualizer() {
   const finishedAnimation = async () => {
     for (let i = 0; i < primaryArray.length; i++) {
       let bar = document.getElementById(i).style;
-      bar.backgroundColor = "green";
+      bar.backgroundColor = FINISHED_BAR_COLOR;
       await sleep(animationSpeed);
     }
     setDisableOptions(false);
@@ -75,6 +79,17 @@ export default function Visualizer() {
     }
   };
 
+  const handleReset = () => {
+    window.location.reload();
+  };
+
+  const handleChangeAlgorithm = (e) => {
+    setAlgorithm(e);
+    randomizeArray();
+  };
+
+  // ------------ ALGORITHMS ------------ //
+
   // Bubble Sort
   const bubbleSort = async () => {
     let currentArr = primaryArray;
@@ -94,13 +109,13 @@ export default function Visualizer() {
 
             let bar1 = document.getElementById(j).style;
             let bar2 = document.getElementById(j + 1).style;
-            bar1.backgroundColor = "#DC143C";
-            bar2.backgroundColor = "#6A5ACD";
+            bar1.backgroundColor = FIRST_BAR_COLOR;
+            bar2.backgroundColor = SECOND_BAR_COLOR;
 
             await sleep(animationSpeed);
 
-            bar1.backgroundColor = "#FF7F50";
-            bar2.backgroundColor = "#FF7F50";
+            bar1.backgroundColor = NORMAL_BAR_COLOR;
+            bar2.backgroundColor = NORMAL_BAR_COLOR;
 
             sorted = false;
           }
@@ -109,6 +124,7 @@ export default function Visualizer() {
       if (sorted) finishedAnimation();
     }
   };
+
   // Selection Sort
   const selectionSort = async () => {
     let currentArr = primaryArray;
@@ -129,13 +145,13 @@ export default function Visualizer() {
 
             let bar1 = document.getElementById(i).style;
             let bar2 = document.getElementById(j).style;
-            bar1.backgroundColor = "#DC143C";
-            bar2.backgroundColor = "#6A5ACD";
+            bar1.backgroundColor = FIRST_BAR_COLOR;
+            bar2.backgroundColor = SECOND_BAR_COLOR;
 
             await sleep(animationSpeed);
 
-            bar1.backgroundColor = "#FF7F50";
-            bar2.backgroundColor = "#FF7F50";
+            bar1.backgroundColor = NORMAL_BAR_COLOR;
+            bar2.backgroundColor = NORMAL_BAR_COLOR;
 
             sorted = false;
           }
@@ -163,13 +179,13 @@ export default function Visualizer() {
 
           let bar1 = document.getElementById(j + 1).style;
           let bar2 = document.getElementById(j).style;
-          bar1.backgroundColor = "#DC143C";
-          bar2.backgroundColor = "#6A5ACD";
+          bar1.backgroundColor = FIRST_BAR_COLOR;
+          bar2.backgroundColor = SECOND_BAR_COLOR;
 
           await sleep(animationSpeed);
 
-          bar1.backgroundColor = "#FF7F50";
-          bar2.backgroundColor = "#FF7F50";
+          bar1.backgroundColor = NORMAL_BAR_COLOR;
+          bar2.backgroundColor = NORMAL_BAR_COLOR;
 
           j--;
           sorted = false;
@@ -219,13 +235,13 @@ export default function Visualizer() {
 
       let bar1 = document.getElementById(i).style;
       let bar2 = document.getElementById(j).style;
-      bar1.backgroundColor = "#DC143C";
-      bar2.backgroundColor = "#6A5ACD";
+      bar1.backgroundColor = FIRST_BAR_COLOR;
+      bar2.backgroundColor = SECOND_BAR_COLOR;
 
       await sleep(animationSpeed);
 
-      bar1.backgroundColor = "#FF7F50";
-      bar2.backgroundColor = "#FF7F50";
+      bar1.backgroundColor = NORMAL_BAR_COLOR;
+      bar2.backgroundColor = NORMAL_BAR_COLOR;
     }
 
     while (i <= mid) {
@@ -235,13 +251,13 @@ export default function Visualizer() {
 
       let bar1 = document.getElementById(i).style;
       let bar2 = document.getElementById(j).style;
-      bar1.backgroundColor = "#DC143C";
-      bar2.backgroundColor = "#6A5ACD";
+      bar1.backgroundColor = FIRST_BAR_COLOR;
+      bar2.backgroundColor = SECOND_BAR_COLOR;
 
       await sleep(animationSpeed);
 
-      bar1.backgroundColor = "#FF7F50";
-      bar2.backgroundColor = "#FF7F50";
+      bar1.backgroundColor = NORMAL_BAR_COLOR;
+      bar2.backgroundColor = NORMAL_BAR_COLOR;
 
       i++;
       k++;
@@ -254,13 +270,13 @@ export default function Visualizer() {
 
       let bar1 = document.getElementById(i).style;
       let bar2 = document.getElementById(j).style;
-      bar1.backgroundColor = "#DC143C";
-      bar2.backgroundColor = "#6A5ACD";
+      bar1.backgroundColor = FIRST_BAR_COLOR;
+      bar2.backgroundColor = SECOND_BAR_COLOR;
 
       await sleep(animationSpeed);
 
-      bar1.backgroundColor = "#FF7F50";
-      bar2.backgroundColor = "#FF7F50";
+      bar1.backgroundColor = NORMAL_BAR_COLOR;
+      bar2.backgroundColor = NORMAL_BAR_COLOR;
 
       j++;
       k++;
@@ -306,12 +322,12 @@ export default function Visualizer() {
 
         let bar1 = document.getElementById(i).style;
         let bar2 = document.getElementById(j).style;
-        bar1.backgroundColor = "#DC143C";
-        bar2.backgroundColor = "#6A5ACD";
+        bar1.backgroundColor = FIRST_BAR_COLOR;
+        bar2.backgroundColor = SECOND_BAR_COLOR;
 
         setTimeout(() => {
-          bar1.backgroundColor = "#ff7f50";
-          bar2.backgroundColor = "#ff7f50";
+          bar1.backgroundColor = NORMAL_BAR_COLOR;
+          bar2.backgroundColor = NORMAL_BAR_COLOR;
         }, 200);
 
         setPrimaryArray([...primaryArray, arr]);
@@ -343,13 +359,13 @@ export default function Visualizer() {
       if (index >= 0) {
         let bar1 = document.getElementById(index).style;
         let bar2 = document.getElementById(index + 1).style;
-        bar1.backgroundColor = "#DC143C";
-        bar2.backgroundColor = "#6A5ACD";
+        bar1.backgroundColor = FIRST_BAR_COLOR;
+        bar2.backgroundColor = SECOND_BAR_COLOR;
 
         await sleep(animationSpeed);
 
-        bar1.backgroundColor = "#FF7F50";
-        bar2.backgroundColor = "#FF7F50";
+        bar1.backgroundColor = NORMAL_BAR_COLOR;
+        bar2.backgroundColor = NORMAL_BAR_COLOR;
       } else {
         await sleep(animationSpeed);
       }
@@ -369,11 +385,11 @@ export default function Visualizer() {
       if (index >= 0) {
         let bar1 = document.getElementById(lastChild).style;
         let bar2 = document.getElementById(0).style;
-        bar1.backgroundColor = "#DC143C";
-        bar2.backgroundColor = "#6A5ACD";
+        bar1.backgroundColor = FIRST_BAR_COLOR;
+        bar2.backgroundColor = SECOND_BAR_COLOR;
 
-        bar1.backgroundColor = "#FF7F50";
-        bar2.backgroundColor = "#FF7F50";
+        bar1.backgroundColor = NORMAL_BAR_COLOR;
+        bar2.backgroundColor = NORMAL_BAR_COLOR;
       } else {
         await sleep(animationSpeed);
       }
@@ -403,13 +419,13 @@ export default function Visualizer() {
 
       let bar1 = document.getElementById(index).style;
       let bar2 = document.getElementById(largest).style;
-      bar1.backgroundColor = "#DC143C";
-      bar2.backgroundColor = "#6A5ACD";
+      bar1.backgroundColor = FIRST_BAR_COLOR;
+      bar2.backgroundColor = SECOND_BAR_COLOR;
 
       await sleep(animationSpeed);
 
-      bar1.backgroundColor = "#FF7F50";
-      bar2.backgroundColor = "#FF7F50";
+      bar1.backgroundColor = NORMAL_BAR_COLOR;
+      bar2.backgroundColor = NORMAL_BAR_COLOR;
 
       await heapify(arr, length, largest);
     }
@@ -418,51 +434,56 @@ export default function Visualizer() {
   };
 
   return (
-    <>
-      <div>
-        <div className="header">
-          <Button
-            type="NEWARRAY"
-            name="New Array"
-            onClick={randomizeArray}
-            disabled={disableOptions}
-          />
-          <Dropdown
-            onChange={(e) => setAlgorithm(e.target.value)}
-            disabled={disableOptions}
-          />
-          <Slider
-            onChange={(e) => setAnimationSpeed(e.target.value)}
-            disabled={disableOptions}
-          />
-          <Button
-            onClick={handleSorting}
-            type="SORT"
-            name="Sort"
-            disabled={disableOptions}
-          />
-        </div>
-        <div className="sortingBars">
-          {primaryArray &&
-            primaryArray.map((val, key) => {
-              return (
-                <div
-                  className="bars"
-                  id={key}
-                  key={key}
-                  style={{ height: val }}
-                >
-                </div>
-              );
-            })}
-        </div>
-        {algorithm.name !== undefined && (
-          <div className="algoInfo">
-            <div>Algorithm: {algorithm.name}</div>
-            <div>Time Complexity: {algorithm.timeComplexity}</div>
-          </div>
-        )}
+    <div>
+      <div className="header">
+        <Button
+          type="NEWARRAY"
+          name="New Array"
+          onClick={randomizeArray}
+          disabled={disableOptions}
+        />
+        <Dropdown
+          onChange={(e) => handleChangeAlgorithm(e.target.value)}
+          disabled={disableOptions}
+        />
+        <Slider
+          onChange={(e) => setAnimationSpeed(e.target.value)}
+          disabled={disableOptions}
+        />
+        <Button
+          onClick={handleReset}
+          type="RESET"
+          name="Reset"
+        />
+        <Button
+          onClick={handleSorting}
+          type="SORT"
+          name="Sort"
+          disabled={disableOptions}
+        />
       </div>
-    </>
+      <div className="sortingBars">
+        {primaryArray &&
+          primaryArray.map((val, key) => {
+            return (
+              <div
+                className="bars"
+                id={key}
+                key={key}
+                style={{ height: val }}
+              >
+              </div>
+            );
+          })}
+      </div>
+      {algorithm.name !== undefined && (
+        <div className="algoInfo">
+          <div>Algorithm: {algorithm.name}</div>
+          <div>Time Complexity: {algorithm.timeComplexity}</div>
+        </div>
+      )}
+    </div>
   );
-}
+};
+
+export default Visualizer;

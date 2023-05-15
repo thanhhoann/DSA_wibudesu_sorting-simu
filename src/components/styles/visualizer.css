@@ -6,20 +6,21 @@
   align-items: center;
   justify-content: center;
   justify-content: space-between;
+  margin : 1rem 2rem;
 }
 
 .sortingBars {
   position: absolute;
   top: 25%;
-  left: 5%;
+  left: 3%;
 }
 
 .bars {
-  width: 10px;
-  background-color: #ff7f50;
-  margin-left: 4px;
+  width: 22px;
+  background-color: white;
+  margin-left: 5px;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .algoInfo {

@@ -1,10 +1,11 @@
 import React from "react";
-import "../styles/button.css";
 
 const Button = ({ type, name, onClick, disabled }) => {
   return (
     <button
-      className={type === "SORT" ? "button sort" : "button newArray"}
+      className={type === "SORT"
+        ? "button sort"
+        : (type === "RESET" ? "button reset" : "button newArray")}
       disabled={disabled}
       onClick={onClick}
     >
