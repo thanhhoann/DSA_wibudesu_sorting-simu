@@ -17,6 +17,14 @@ const Visualizer = () => {
   const [animationSpeed, setAnimationSpeed] = useState(5);
   const [disableOptions, setDisableOptions] = useState(false);
 
+  console.log(algorithm);
+
+  useEffect(() => {
+    randomizeArray();
+    let persistAlgo = localStorage.getItem("currentAlgo");
+    setAlgorithm(persistAlgo);
+  }, []);
+
   const randomizeArray = () => {
     for (let i = 0; i < primaryArray.length; i++) {
       let bar = document.getElementById(i).style;
@@ -35,10 +43,6 @@ const Visualizer = () => {
     let randomVal = Math.floor(Math.random() * (max - min + 1) + min);
     return randomVal;
   };
-
-  useEffect(() => {
-    randomizeArray();
-  }, []);
 
   const sleep = (milliSeconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliSeconds));
@@ -85,6 +89,7 @@ const Visualizer = () => {
 
   const handleChangeAlgorithm = (e) => {
     setAlgorithm(e);
+    localStorage.setItem("currentAlgo", e);
     randomizeArray();
   };
 
@@ -436,15 +441,10 @@ const Visualizer = () => {
   return (
     <div>
       <div className="header">
-        <Button
-          type="NEWARRAY"
-          name="New Array"
-          onClick={randomizeArray}
-          disabled={disableOptions}
-        />
         <Dropdown
           onChange={(e) => handleChangeAlgorithm(e.target.value)}
           disabled={disableOptions}
+          defaultValue={localStorage.getItem("currentAlgo")}
         />
         <Slider
           onChange={(e) => setAnimationSpeed(e.target.value)}
