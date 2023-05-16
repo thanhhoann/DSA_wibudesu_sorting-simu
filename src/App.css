@@ -1,16 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: black;
+  font-family: "Raleway", sans-serif;
 }
 
-@import url('./components/styles/button.css');
+@import url("./components/styles/button.css");
 
-@import url('./components/styles/dropdown.css');
+@import url("./components/styles/dropdown.css");
 
-@import url('./components/styles/slider.css');
+@import url("./components/styles/slider.css");
 
-@import url('./components/styles/toggle.css');
+@import url("./components/styles/toggle.css");
 
-@import url('./components/styles/visualizer.css');
+@import url("./components/styles/visualizer.css");
+
+@import url("./components/styles/algoInfo.css");

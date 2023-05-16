@@ -1,0 +1,18 @@
+.algoInfo {
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+  width: 90%;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.algoInfo div {
+  padding: 0.2rem 1.5rem;
+}

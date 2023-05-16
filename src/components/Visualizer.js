@@ -11,18 +11,34 @@ import Slider from "./UI/Slider";
 
 const ARRAYSIZE = 50;
 
+const ALGORITHMS = {
+  "bubbleSort": { name: "Bubble Sort", time: "O(n^2)" },
+  "selectionSort": { name: "Selection Sort", time: "O(n^2)" },
+  "insertionSort": { name: "Insertion Sort", time: "O(n^2)" },
+  "mergeSort": { name: "Merge Sort", time: "O(n log n)" },
+  "quickSort": { name: "Quick Sort", time: "O(n log n)" },
+  "heapSort": { name: "Heap Sort", time: "O(n log n)" },
+};
+
 const Visualizer = () => {
   const [primaryArray, setPrimaryArray] = useState([]);
   const [algorithm, setAlgorithm] = useState("bubbleSort");
+  const [algorithmInfo, setAlgorithmInfo] = useState();
   const [animationSpeed, setAnimationSpeed] = useState(5);
   const [disableOptions, setDisableOptions] = useState(false);
+  const [persistAlgo, setPersistAlgo] = useState();
 
-  console.log(algorithm);
+  console.log("current algo : ", algorithm);
 
   useEffect(() => {
     randomizeArray();
-    let persistAlgo = localStorage.getItem("currentAlgo");
+    setPersistAlgo(localStorage.getItem("currentAlgo"));
     setAlgorithm(persistAlgo);
+    if (ALGORITHMS[algorithm]) {
+      setAlgorithmInfo(ALGORITHMS[algorithm]);
+    } else {
+      setAlgorithmInfo(ALGORITHMS["bubbleSort"]);
+    }
   }, []);
 
   const randomizeArray = () => {
@@ -444,7 +460,7 @@ const Visualizer = () => {
         <Dropdown
           onChange={(e) => handleChangeAlgorithm(e.target.value)}
           disabled={disableOptions}
-          defaultValue={localStorage.getItem("currentAlgo")}
+          defaultValue={persistAlgo}
         />
         <Slider
           onChange={(e) => setAnimationSpeed(e.target.value)}
@@ -476,12 +492,21 @@ const Visualizer = () => {
             );
           })}
       </div>
-      {algorithm.name !== undefined && (
-        <div className="algoInfo">
-          <div>Algorithm: {algorithm.name}</div>
-          <div>Time Complexity: {algorithm.timeComplexity}</div>
+
+      <div className="algoInfo">
+        <div className="algoInfo-name">
+          <h2>
+            Algorithm :{" "}
+            {ALGORITHMS[algorithm] ? ALGORITHMS[algorithm].name : "Bubble Sort"}
+          </h2>
         </div>
-      )}
+        <div className="algoInfo-time">
+          <h2>
+            Time Complexity :{" "}
+            {ALGORITHMS[algorithm] ? ALGORITHMS[algorithm].time : "O(n^2)"}
+          </h2>
+        </div>
+      </div>
     </div>
   );
 };
