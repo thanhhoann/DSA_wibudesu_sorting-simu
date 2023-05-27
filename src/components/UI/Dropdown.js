@@ -1,7 +1,7 @@
 import React from "react";
 
 const Dropdown = ({ onChange, disabled, defaultValue }) => {
-  console.log(defaultValue);
+  console.log("dropdown ", defaultValue);
   return (
     <div className="dropdown">
       <select

@@ -9,6 +9,8 @@ import Button from "./UI/Button";
 import Dropdown from "./UI/Dropdown";
 import Slider from "./UI/Slider";
 
+import { motion } from "framer-motion";
+
 const ARRAYSIZE = 50;
 
 const ALGORITHMS = {
@@ -33,12 +35,7 @@ const Visualizer = () => {
   useEffect(() => {
     randomizeArray();
     setPersistAlgo(localStorage.getItem("currentAlgo"));
-    setAlgorithm(persistAlgo);
-    if (ALGORITHMS[algorithm]) {
-      setAlgorithmInfo(ALGORITHMS[algorithm]);
-    } else {
-      setAlgorithmInfo(ALGORITHMS["bubbleSort"]);
-    }
+    setAlgorithm("bubbleSort");
   }, []);
 
   const randomizeArray = () => {
@@ -493,20 +490,19 @@ const Visualizer = () => {
           })}
       </div>
 
-      <div className="algoInfo">
-        <div className="algoInfo-name">
-          <h2>
-            Algorithm :{" "}
-            {ALGORITHMS[algorithm] ? ALGORITHMS[algorithm].name : "Bubble Sort"}
-          </h2>
+      <motion.div
+        className="footer"
+        initial={{ y: "10rem", opacity: 0 }}
+        animate={{ y: "0", opacity: 100 }}
+        transition={{ ease: "easeOut", duration: 5 }}
+      >
+        <div>
+          Made by{" "}
+          <a href="https://www.instagram.com/hoanthanh_/">
+            @hoanthanh_
+          </a>
         </div>
-        <div className="algoInfo-time">
-          <h2>
-            Time Complexity :{" "}
-            {ALGORITHMS[algorithm] ? ALGORITHMS[algorithm].time : "O(n^2)"}
-          </h2>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

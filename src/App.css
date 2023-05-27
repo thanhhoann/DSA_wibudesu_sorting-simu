@@ -8,6 +8,32 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.footer div {
+  background-color: white;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 900;
+}
+
+.footer a {
+  color: black;
+}
+
 @import url("./components/styles/button.css");
 
 @import url("./components/styles/dropdown.css");
