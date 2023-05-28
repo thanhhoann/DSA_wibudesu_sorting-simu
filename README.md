@@ -105,31 +105,31 @@ utils package, and groups of testing applications class for each type of
 function class. The components package is the main class that includes almost
 our project, it contains styles and UI, which will be described in detail below:
 
-**a) Styles**: Including classes in CSS type
+**a) Styles**: Including classes in CSS type, styling, and aligning the tool’s layout.
 
-- []() **AlgoInfo**:
+- []() **AlgoInfo**
 
-- []() **Button**:
+- []() **Button**
 
-- []() **Dropdown**:
+- []() **Dropdown**
 
-- []() **Slider**:
+- []() **Slider**
 
-- []() **Toggle**:
+- []() **Toggle**
 
-- []() **Visualizer**:
+- []() **Visualizer**
 
 **b) UI**: Including classes in javascript (js) type:
 
-- []() **AlgoInfo**:
+- []() **AlgoInfo**: visualization of the complexity of each sorting algorithm.
 
-- []() **Button**:
+- []() **Button**: creating interactive Sort and Reset button.
 
-- []() **Dropdown**:
+- []() **Dropdown**: creating interactive sorting selection.
 
-- []() **Slider**:
+- []() **Slider**: creating interactive speed selection.
 
-- []() **Toggle**:
+- []() **Toggle**
 
 **c) Visualizer.js**: Including visualization of the algorithms information,
 sorting handling (randomly generating array, time limitation), and the basic
@@ -178,7 +178,8 @@ Sample of the game screenshots that demo the game's current build:
 
 - [x] The menu when running game
 
-<img src="Resources/menu.png" alt="menu">
+https://github.com/thanhhoann/DSA_wibudesu_sorting-simu/assets/93024001/d83f42a0-31d5-4f9e-9370-3322b2b13694
+
 
 <!-- CONTRIBUTING -->
 
