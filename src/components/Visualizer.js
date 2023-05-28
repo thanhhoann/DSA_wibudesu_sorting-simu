@@ -8,24 +8,15 @@ import {
 import Button from "./UI/Button";
 import Dropdown from "./UI/Dropdown";
 import Slider from "./UI/Slider";
+import GithubPNG from "./assets/github.png";
 
 import { motion } from "framer-motion";
 
 const ARRAYSIZE = 50;
 
-const ALGORITHMS = {
-  "bubbleSort": { name: "Bubble Sort", time: "O(n^2)" },
-  "selectionSort": { name: "Selection Sort", time: "O(n^2)" },
-  "insertionSort": { name: "Insertion Sort", time: "O(n^2)" },
-  "mergeSort": { name: "Merge Sort", time: "O(n log n)" },
-  "quickSort": { name: "Quick Sort", time: "O(n log n)" },
-  "heapSort": { name: "Heap Sort", time: "O(n log n)" },
-};
-
 const Visualizer = () => {
   const [primaryArray, setPrimaryArray] = useState([]);
   const [algorithm, setAlgorithm] = useState("bubbleSort");
-  const [algorithmInfo, setAlgorithmInfo] = useState();
   const [animationSpeed, setAnimationSpeed] = useState(5);
   const [disableOptions, setDisableOptions] = useState(false);
   const [persistAlgo, setPersistAlgo] = useState();
@@ -490,19 +481,22 @@ const Visualizer = () => {
           })}
       </div>
 
-      <motion.div
-        className="footer"
-        initial={{ y: "10rem", opacity: 0 }}
-        animate={{ y: "0", opacity: 100 }}
-        transition={{ ease: "easeOut", duration: 5 }}
+      <a
+        href="https://github.com/thanhhoann/DSA_wibudesu_sorting-simu"
+        target="_blank"
       >
-        <div>
-          Made by{" "}
-          <a href="https://www.instagram.com/hoanthanh_/">
-            @hoanthanh_
-          </a>
-        </div>
-      </motion.div>
+        <motion.div
+          className="footer"
+          initial={{ y: "10rem", opacity: 0 }}
+          animate={{ y: "0", opacity: 100 }}
+          transition={{ ease: "easeOut", duration: 5 }}
+        >
+          <div className="footer-content">
+            <img src={GithubPNG} width={30} />
+            <p>wibudesu team</p>
+          </div>
+        </motion.div>
+      </a>
     </div>
   );
 };
