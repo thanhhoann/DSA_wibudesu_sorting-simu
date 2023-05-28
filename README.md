@@ -24,7 +24,7 @@
 | No.| Full Name |Student's ID | Email | Roles | Contribution |
 |:--:| :-------------------: | :---------: | :------------------------------: | :-----------------------------: | :--------------------: |
 | 1 | Phan Dinh Thanh Hoan| ITITWE20024 | ITITWE20024@student.hcmiu.edu.vn | TEAM LEADER, COVER ALMOST THE PROJECT | 25% |
-| 2 | Hoang Tuan Kiet | ITDSIU21055 | ITDSIU210550@student.hcmiu.edu.vn | BASIC INTERACTIVE ACTIONS AND SLIDES | 25% |
+| 2 | Hoang Tuan Kiet | ITDSIU21055 | ITDSIU21055@student.hcmiu.edu.vn | BASIC INTERACTIVE ACTIONS AND SLIDES | 25% |
 | 3 | Nguyen Hai Ngoc | ITDSIU21057 | ITDSIU21057@student.hcmiu.edu.vn | LAYOUT, STYLING AND REPORT | 25% |
 | 4 | Tran Nguyen Trung Quan | ITITDK21071 | ITITDK21071@student.hcmiu.edu.vn | VISUALIZATION THE SORTING PROCESS THROUGH REACTJS | 25% |
 
